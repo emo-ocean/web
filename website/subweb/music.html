@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width">
+        <title>Document</title>
+    </head>
+    <body>
+        <p>Dive Back In Time</p>
+         <audio controls autoplay loop> 
+            <!-- muted作用关闭音量 -->
+            <!-- 原因：Chrome等浏览器基于安全的策略，
+                于早几年就已经停止自动播放 -->
+                <!-- loop循环播放 -->
+            <source src="music/白鲨JAWS - Dive Back In Time.mp3"type="audio/mpeg">
+            <source src="music/白鲨JAWS - Dive Back In Time.wav"type="audio/wav">
+        </audio>
+
+        <p>春を告げる</p>
+        <audio controls>
+            <source src="music/yama - 春を告げる.mp3">
+        </audio>
+
+        <p>隔岸</p>
+        <audio controls>
+            <source src="music/姚六一 - 隔岸.mp3">
+        </audio>
+    </body>
+</html>
+<!-- 在第一首歌的 <audio> 元素中，使用了两个 <source> 元素分别指定了 .mp3 和 .wav 格式的音频文件。
+    这样做的目的是为了在不同的浏览器中提供备用的音频格式，以增加兼容性。
+    例如，有些浏览器可能支持 .mp3 格式而不支持 .wav 格式，反之亦然。
+
+    浏览器会自动选择支持的格式进行播放。如果浏览器支持 audio/mpeg 类型（通常支持 .mp3 格式），
+    它将选择第一个 <source> 中的 .mp3 文件进行播放。如果浏览器不支持 audio/mpeg 类型，
+    但支持 audio/wav 类型，它将尝试使用第二个 <source> 中的 .wav 文件进行播放。
+    
+    总之，使用多个 <source> 元素指定不同格式的音频文件可以提高在不同浏览器中播放音频的兼容性。 -->

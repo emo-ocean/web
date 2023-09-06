@@ -1,0 +1,64 @@
+body{
+    background-image:url(londonbackground.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+h1{
+    color: white;
+}
+/* #p1{
+    color: red;
+}
+#p2{
+    color: yellow;
+}
+#p3{
+    color: blue;
+}
+#p4{
+    color: pink;
+} */
+.odd{
+    color: pink;
+}
+.even{
+    color: aqua;
+}
+a:link{
+    color: aquamarine;
+}
+a:hover{
+    color: black;
+    font-size: 1.1em;
+}
+a:active{
+    color:brown;
+    font-size: 1.1em;
+}
+a:visited{
+    color:rgb(137, 134, 134);
+    font-size: 1.1em;
+}
+li:hover{
+    background-color: aqua;
+}
+li:not(:hover){
+    background-color: green;
+}
+li:nth-child(3n){
+    /* even,3n+2 */
+    color: azure;
+}
+h1::first-letter{
+    font-size: 2em;
+    font-style: italic;
+}
+p::first-line{
+    background-color: yellow;
+}
+p::selection{
+    color: greenyellow;
+    background-color: black;
+}

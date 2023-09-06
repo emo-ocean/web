@@ -1,0 +1,173 @@
+<?php 
+
+// this code will not run without the virtual server
+
+
+
+echo "";
+
+	
+	
+?>
+<!-- the following elements ( doctype, html, head, meta, and body ) are created automatically by dreamweaver and need to be in every webpage you create, they should be declared and then closed-->
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>register system</title>
+	
+<!--all connecting files should be in this area so they load before the page-->	
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/jquery.ui-1.10.4.datepicker.min.js"></script>
+<link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css">
+<link href="css/jquery.ui.datepicker.min.css"></script>
+<link href="css/css_main.css" rel="stylesheet" type="text/css">
+	
+</head>
+<!--the head tag closes and the body tag will contain all the viewable elements-->
+<body>
+<div id="container">
+    
+<div id="header">
+<center><h4>SUMMER SCHOOL EXERCISE 2023</h4></center>
+    <table width="30%" align="center" cellpadding="5" cellspacing="5" id="loginRegTable">
+        <tr><td align="center">
+           
+            <div id="login">Already registered<br>LOG IN</div></td>
+       
+            <td align="center">
+           
+            <div id="register">No Account<br>REGISTER</div></td></tr>
+    </table>
+    
+</div>
+    
+<div id="content">
+    
+<form method="POST" action="one.php">
+    <table border="0" align="center" cellpadding="5" cellspacing="5" id="logInTable">
+        <tr><th colspan="2" align="center">LOG IN</th></tr>
+		
+        <tr>
+          <td align="right">username</td>
+          <td><input type="text" name="username" id="username" value=""></td>
+        </tr>
+		
+		<tr>
+        <td align="right">password</td>
+        <td>
+          <input type="text" name="password" id="password" value=""></td>
+        </tr>
+		
+		<tr>
+        <td align="right">datepicker</td>
+        <td>
+          <input type="text" name="datepicker" id="datepicker" value=""></td>
+        </tr>
+		
+		<tr>
+          <td><input type="reset" name="reset" id="reset" value="Reset"></td>
+          <td align="right">
+        <input type="submit" name="submit" id="submit" value="Submit"></td>
+      </tr>
+		
+    </table>
+</form>
+
+<div id="registerDetails">
+       <table border="0" align="center" cellpadding="5" cellspacing="5" id="registerTable">
+        <tr><th colspan="2" align="center">REGISTER</th></tr>
+		   
+        <tr>
+          <td align="right">username</td>
+          <td><input type="text" name="username" id="username" value=""></td>
+        </tr>
+		   
+		   <tr>
+        <td align="right">password</td>
+        <td>
+          <input type="text" name="password" id="password" value=""></td>
+        </tr>
+		   
+		   <tr>
+        <td align="right">datepicker2</td>
+        <td>
+          <input type="text" name="datepicker" id="datepicker" ></td>
+        </tr>
+		   <tr>
+          <td><input type="reset" name="reset" id="reset" value="Reset"></td>
+          <td align="right">
+        <input type="submit" name="submit" id="submit" value="Submit"></td>
+      </tr>
+    </table>
+</div>
+    
+<div id="footer"><h5>Copyright UCL Summer School 2023</h5>
+</div>
+</div>
+    
+<script>
+//alert("js working");
+    
+$('#register, #login').click(function(){
+    $('#registerDetails, #register, #logInTable, #login').toggle();
+
+
+});
+$('#username').val("enter username");
+$('#password').val("enter password");   
+    
+$('#password').click(function(){ $('#password').val(""); });
+$('#username').click(function(){ $('#username').val(""); });   
+
+$(function(){
+    $("#datepicker,#datepicker2").datepicker();
+});
+
+</script>
+<!--the body tag ends-->
+
+
+<?php
+// 建立数据库连接
+$servername = "localhost";
+$username = "root";
+$dbname = "college_sql";
+
+$conn = new mysqli($servername, $username, '', $dbname);
+
+// 检查连接是否成功
+if ($conn->connect_error) {
+    die("fail in connectint to the datebase : " . $conn->connect_error);
+}
+
+// 获取输入的用户名和密码
+if (isset($_POST['username']) && isset($_POST['password'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // 查询数据库中的用户名和密码是否匹配
+    $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // 用户名和密码匹配
+        // 在这里执行登录成功后的操作，例如重定向到另一个页面
+        header("Location: localhost.dashboard");
+        exit;
+    } else {
+        // 用户名和密码不匹配
+        // 在这里执行登录失败后的操作，例如显示错误消息
+        echo "incorrect admin or password";
+    }
+}
+
+
+// 关闭数据库连接
+$conn->close();
+?>
+
+</body>
+<!--the html tag ends-->
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width">
+        <link rel="icon" type="subweb/image/jpg" href="images/icon.jpg">
+        <!-- type内不是文件夹名，是库名 -->
+        <title>span&div</title>
+    </head>
+    <body>
+
+       <!-- group together has two ways 
+    1.span :inline container to group elements for styling;
+    2.DIV  :block container to group elements for styling
+    -->
+
+    <h1>
+        <span style="background-color: tomato;">
+            this is a span title
+        </span>
+    </h1>
+
+    <h1>
+        <div style="background-color: blue;">
+            this is a div title
+        </div>
+    </h1>
+
+    <p>
+        <span style="background-color: aquamarine;">
+            this is span content
+        </span>
+    </p>
+
+    <p>
+        <div style="background-color: blueviolet;">
+            this is div content
+        </div>
+    </p>
+
+
+
+    <p>
+         这块主要是对 MobileNetV3-L 的块结构进行了改进，
+         分离了令牌混合器和通道混合器。
+         <span style="background-color: rgb(102, 255, 0);">
+        原来的 MobileNetV3块结构包含一个 1x1 扩张卷积，然后是一个深度卷积和一个 1x1 的投影层，</span>
+         然后通过残差连接连接输入和输出。在此基础上，RepViT 将深度卷积提前，使得通道混合器和令牌混合器能够被分开。
+        <div style="background-color: rgb(255, 0, 183);">为了提高性能，还
+         引入了结构重参数化来在训练时为深度滤波器引入多分
+         支拓扑。最终，作者们成功地在 MobileNetV3 块中分
+         离了令牌混合器和通道混合器，并将这种块命名为 Rep
+         ViT 块。在通道混合器中，原本的扩张比例是 4，这意
+         味着 MLP 块的隐藏维度是输入维度的四倍，消耗了大量
+         的计算资源，对推理时间有很大的影响。为了缓解这个问
+         题，我们可以将扩张比例降低到 2，从而减少了参数冗余
+         和延迟，使得 MobileNetV3-L 的延迟降低到 0.65ms。随
+         后，通过增加网络的宽度，即增加各阶段的通道数量，Top
+         -1 准确率提高到 73.5%，而延迟只增加到 0.89ms！</div>
+    </p>
+
+    </body>
+      
+</a>
+</html>
